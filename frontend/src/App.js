@@ -1,23 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import {useState, useEffect} from 'react'
 
 function App() {
+  const [gameState, setGameState] = useState()
+
+  useEffect(() => {
+    const interval = setInterval(async () => {
+      let apiReq = await fetch('http://localhost:4000')
+      let body = await apiReq.json()
+      setGameState(body)
+
+      console.log(body)
+    }, 1000)
+  }, [])
+
+  console.log(gameState)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      CT: {gameState.ct_score}
+      T: {gameState.tscore}
     </div>
   );
 }
