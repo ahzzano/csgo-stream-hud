@@ -8,7 +8,7 @@ let state = {}
 app.use(cors())
 
 app.post('/' , (req, res) => {
-    console.log(res.body)
+    console.log(req.body)
     res.send('hello')        
 })
 
