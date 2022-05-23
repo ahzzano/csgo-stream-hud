@@ -6,11 +6,10 @@ import {create_player, create_player_stats, create_player_status, create_state} 
 
 const app = express()
 
-
-let global_state = undefined 
-
 app.use(cors())
 app.use(bodyParser.json())
+
+let global_state = undefined 
 
 app.post('/' , (req, res) => {
     let raw_game_state = req.body
@@ -53,9 +52,6 @@ app.post('/' , (req, res) => {
     // Create the new state and save it to the global state
     let new_state = create_state(terrorists, counterterrorists, map, ct_score, t_score, round_state)
     global_state = new_state
-
-    console.log(global_state)
-    res.send('hello')        
 })
 
 app.get('/', (req, res) => {
