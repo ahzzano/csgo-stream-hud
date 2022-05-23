@@ -25,11 +25,27 @@ app.post('/' , (req, res) => {
     if(raw_game_state.map.mode != 'competitive') 
         return; 
 
+    console.log(raw_game_state.allplayers)
+
     // Get the players and add them to the state
     for(const [steamid, player] of Object.entries(raw_game_state.allplayers)) {
         let player_status = create_player_status(player.state.health, player.state.armor, player.state.helmet, player.state.money, player.weapon)
         let player_stats = create_player_stats(player.match_stats.kills, player.match_stats.assists, player.match_stats.deaths)
-        let player_object = create_player(player.name, steamid, player_status, player_stats)
+        
+        let weapons = []
+        for(const[weapon_slot, weapon] of Object.entries(player.weapons)) {
+            let name = weapon.name
+            let type = weapon.type
+
+            let weapon_object = {
+                name: name,
+                type: type
+            }
+
+            weapons.push(weapon_object)
+        }
+
+        let player_object = create_player(player.name, steamid, player_status, player_stats, weapons)
 
         if(player.team == 'T') {
             terrorists.push(player_object) 
