@@ -19,8 +19,8 @@ function App() {
 
   return (
     <div className="App">
-      CT: {gameState.ct_score}
-      T: {gameState.tscore}
+      CT: 16
+      T: 16
     </div>
   );
 }
