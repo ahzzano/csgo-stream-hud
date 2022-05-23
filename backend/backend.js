@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 import { readFileSync } from 'fs'
-import {create_player, create_player_stats, create_player_status, create_state} from './state.js'
+import {create_player, create_player_stats, create_player_status, create_state, get_util_state} from './state.js'
 
 const app = express()
 
@@ -24,8 +24,6 @@ app.post('/' , (req, res) => {
     // Check map state and return if not competitive
     if(raw_game_state.map.mode != 'competitive') 
         return; 
-
-    console.log(raw_game_state.allplayers)
 
     // Get the players and add them to the state
     for(const [steamid, player] of Object.entries(raw_game_state.allplayers)) {
@@ -65,8 +63,13 @@ app.post('/' , (req, res) => {
     // Get the current state of the round    
     let round_state = raw_game_state.round
 
+    // Get the state of util for each team
+    let tside_util = get_util_state(terrorists)
+    let ctside_util = get_util_state(counterterrorists)
+
     // Create the new state and save it to the global state
-    let new_state = create_state(terrorists, counterterrorists, map, ct_score, t_score, round_state)
+    let new_state = create_state(terrorists, counterterrorists, map, ct_score, t_score, round_state, ctside_util, tside_util)
+
     global_state = new_state
 })
 
