@@ -8,7 +8,7 @@ function App() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      fetch('http://localhost:4000').then((response) => {
+      fetch('http://127.0.0.1:4000').then((response) => {
         response.json().then((body) => {
           setGameState(body)
         })
