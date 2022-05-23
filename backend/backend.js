@@ -12,6 +12,8 @@ app.use(bodyParser.json())
 let global_state = undefined 
 
 app.post('/' , (req, res) => {
+    console.profile('test')
+
     let raw_game_state = req.body
     
     let terrorists = []
@@ -71,6 +73,8 @@ app.post('/' , (req, res) => {
     let new_state = create_state(terrorists, counterterrorists, map, ct_score, t_score, round_state, ctside_util, tside_util)
 
     global_state = new_state
+
+    console.profileEnd()
 })
 
 app.get('/', (req, res) => {
