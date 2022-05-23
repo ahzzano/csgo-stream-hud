@@ -77,10 +77,10 @@ app.post('/' , (req, res) => {
         let player_object = create_player(player.name, steamid, player_status, player_stats)
 
         if(player.team == 'T') {
-           terrorists.push(player_object) 
+            terrorists.push(player_object) 
         }
         else {
-            terrorists.push(player_object)
+            counterterrorists.push(player_object)
         }
     }
 
@@ -92,7 +92,7 @@ app.post('/' , (req, res) => {
     let t_score = current_game_state.map.team_t.score
 
     // Get the current state of the round    
-    let round_state = current_game_state.map.round_state
+    let round_state = current_game_state.round
 
     // Create the new state and save it to the global state
     let new_state = create_state(terrorists, counterterrorists, map, ct_score, t_score, round_state)
