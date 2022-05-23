@@ -79,20 +79,28 @@ function get_util_state(players) {
             weapons.push(weapon)
         }
 
+        if(player == undefined) {
+            continue
+        }
+
         weapons = weapons.filter((weapon) => weapon.type == 'Grenade')
         
         for(const weapon of weapons) {
+            if(weapon == undefined)
+                continue
+
             let lowercase_name = weapon.name.toLowerCase()
-            if(lowercase_name.contains('flash'))
+            
+            if(/flash/.exec(lowercase_name))
                 number_of_flashes++
             
-            if(lowercase_name.contains('smoke'))
+            if(/smoke/.exec(lowercase_name))
                 number_of_smokes++
             
-            if(lowercase_name.contains('molotov') || lowercase_name.contains('inc'))
+            if(/molotov|inc/.exec(lowercase_name))
                 number_of_molotovs++
             
-            if(lowercase_name.contains('he'))
+            if(/he/.exec(lowercase_name))
                 number_of_grenades++
         }
 
