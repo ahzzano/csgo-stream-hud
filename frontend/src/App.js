@@ -13,7 +13,11 @@ function App() {
           setGameState(body)
         })
       })
-    }, 25)
+
+      return () => {
+        clearInterval(interval)
+      }
+    }, 5)
   }, []) 
 
   console.log(gameState)
