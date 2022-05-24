@@ -13,11 +13,9 @@ function App() {
           setGameState(body)
         })
       })
-    }, 5)
+    }, 25)
   }, []) 
 
-  //let player = {"name":"Ridgway","steamid":"76561197960265731","player_status":{"health":100,"armor":0,"has_helmet":false,"money":800},"player_stats":{"kills":0,"deaths":0,"assists":0,"kdr":0},"weapons":[{"name":"weapon_knife","type":"Knife"},{"name":"weapon_hkp2000","type":"Pistol"}]}
-  
   console.log(gameState)
 
   if(gameState === undefined) {

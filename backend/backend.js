@@ -14,6 +14,8 @@ let global_state = undefined
 app.post('/' , (req, res) => {
     console.profile('test')
 
+    console.log('state updating')
+
     let raw_game_state = req.body
     
     let terrorists = []
