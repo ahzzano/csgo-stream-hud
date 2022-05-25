@@ -21,7 +21,7 @@ function App() {
     }, 100)
   }, []) 
 
-  console.log(gameState)
+  //console.log(gameState)
 
   if(gameState === undefined) {
     return (
@@ -37,6 +37,8 @@ function App() {
     ct_name: "Counter-Terrorists",
     t_name: "Terrorists"
   }
+
+  let isBombPlanted = gameState.bomb != undefined
 
   return (
     <div className="App">

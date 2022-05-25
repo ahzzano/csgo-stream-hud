@@ -15,13 +15,14 @@ function create_state(tplayers, ctplayers, map, ctscore, tscore, round_state, ct
     return state
 }
 
-function create_player(name, steamid, player_status, player_stats, weapons) {
+function create_player(name, steamid, player_status, player_stats, weapons, pfp=null) {
     let player = {
         name: name,
         steamid: steamid,
         player_status: player_status,
         player_stats: player_stats,
-        weapons: weapons
+        weapons: weapons,
+        pfp: pfp
     }
 
     return player
