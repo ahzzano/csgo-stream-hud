@@ -21,6 +21,10 @@
     gap: 15px;
 }
 
+.player {
+    background-color: #1b1d2e;
+}
+
 .game-variables {
     display: flex;
     align-content: center;

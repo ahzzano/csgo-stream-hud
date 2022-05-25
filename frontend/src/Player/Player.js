@@ -8,19 +8,36 @@ function Player(props) {
 
   let direction = props.align == 'left' ? 'to-left' : 'to-right'
 
+  function Healthbar() {
+    if(props.align == 'left') {
+      return (
+        <div style={{
+            width: `${health}%`,
+            height: 20,
+            backgroundColor: props.color,
+        }}/>
+      ) 
+    }
+    else {
+      return (
+        <div style={{
+            width: `${health}%`,
+            marginLeft: `${100 - health}%`,
+            height: 20,
+            backgroundColor: props.color,
+        }}/>
+      )
+    }
+  }    
+  
   return (
-    <div style={{width: 400, backgroundColor: "black", color: "white", height: 60, borderRadius: 15}}>
+    <div style={{width: 400, color: "white", height: 60}} className="player">
         <div className={`flex ${direction}`}>
 
           <img src={"https://nadeko.bot/static/media/nadeko-top.ad6cc06a.png"} width={60} height={60}/>
           <div className='flex flex-down' style={{width: '100%'}}>
+            <Healthbar/>
 
-            <div style={{
-                width: `${health}%`,
-                height: 20,
-                backgroundColor: props.color
-            }}>
-            </div>
             <div className={`flex ${direction} inside-player`}>
               <span className={'game-variables'}>
                 {health}
