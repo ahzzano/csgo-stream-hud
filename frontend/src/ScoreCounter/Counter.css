@@ -1,14 +1,13 @@
 .counter {
-    width: 500px;
-    height: 30px;
+    width: 650px;
+    height: 75px;
     background-color: black;
     color: white;
 
-    padding: 15px;
     display: flex;
-    gap: 5px;
 
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .center-screen {
@@ -18,4 +17,30 @@
 
 .padding-from-top {
     margin-top: 15px;
+}
+
+.team {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-grow: 1;
+}
+
+.team > img {
+    height: 100%;
+}
+
+.scores {
+    display: flex;
+    gap: 31px;
+    width: 40%;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.justify-right {
+    justify-content: right;
 }
