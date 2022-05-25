@@ -3,7 +3,7 @@
 .counter {
     width: 675px;
     height: 75px;
-    background-color: black;
+    background-color: #1b1d2e;
     color: white;
 
     display: flex;

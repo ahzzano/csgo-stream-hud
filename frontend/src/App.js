@@ -47,7 +47,6 @@ function App() {
         <Counter teams={teamData} phase={gameState.phase}/>
       </div>
 
-      <Radar counterterrorists={gameState.counterterrorists}/>
 
       <div style={{marginLeft: 25}}>
         <div className={"lowerright player-list"}>
