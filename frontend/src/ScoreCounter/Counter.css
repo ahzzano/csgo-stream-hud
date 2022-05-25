@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+
 .counter {
-    width: 650px;
+    width: 675px;
     height: 75px;
     background-color: black;
     color: white;
@@ -8,6 +10,8 @@
 
     justify-content: space-between;
     align-items: center;
+
+    font-family: 'Roboto Mono', monospace;
 }
 
 .center-screen {
@@ -21,7 +25,7 @@
 
 .team {
     height: 100%;
-    width: 30%;
+    width: 35%;
     display: flex;
     align-items: center;
     gap: 15px;
@@ -35,7 +39,7 @@
 .scores {
     display: flex;
     gap: 31px;
-    width: 40%;
+    width: 30%;
     flex-grow: 1;
     align-items: center;
     justify-content: center;

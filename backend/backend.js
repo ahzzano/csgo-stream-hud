@@ -12,6 +12,9 @@ app.use(bodyParser.json())
 let global_state = undefined 
 let last_update = 0
 
+let team_a = undefined
+let team_b = undefined
+
 app.post('/' , (req, res) => {
     if(last_update == 0) {
         last_update = Date.now()
@@ -66,6 +69,24 @@ app.post('/' , (req, res) => {
         }
     }
 
+    if(team_a == undefined) {
+        team_a = counterterrorists
+    }
+    else {
+        if(!counterterrorists.includes(team_a[0]) || !terrorists.includes(team_a[0])) {
+            team_a = counterterrorists
+        }
+    }
+
+    if(team_b == undefined) {
+        team_b = terrorists 
+    }
+    else {
+        if(!counterterrorists.includes(team_b[0]) || !terrorists.includes(team_b[0])) {
+            team_b = terrorists
+        }
+    }
+
     // Get the current map
     let map = raw_game_state.map.name
 
@@ -83,7 +104,7 @@ app.post('/' , (req, res) => {
     let phase = raw_game_state.phase_countdowns
 
     // Create the new state and save it to the global state
-    let new_state = create_state(terrorists, counterterrorists, map, ct_score, t_score, round_state, ctside_util, tside_util, phase)
+    let new_state = create_state(team_b, team_a, map, ct_score, t_score, round_state, ctside_util, tside_util, phase)
 
     global_state = new_state
 

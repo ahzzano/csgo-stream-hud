@@ -21,7 +21,8 @@ function Player(props) {
             }}>
             </div>
             <div className={`flex ${direction} inside-player`}>
-              {player.name}
+              <span>{health}</span>
+              <span>{player.name}</span>
             </div>
           </div>
         </div>
