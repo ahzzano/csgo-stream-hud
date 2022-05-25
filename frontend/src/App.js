@@ -3,6 +3,7 @@ import './App.css';
 import {useState, useEffect} from 'react'
 import Player from './Player'
 import Counter from './ScoreCounter';
+import Radar from './Radar';
 
 function App() {
   const [gameState, setGameState] = useState()
@@ -21,7 +22,7 @@ function App() {
     }, 100)
   }, []) 
 
-  //console.log(gameState)
+  console.log(gameState)
 
   if(gameState === undefined) {
     return (
@@ -45,6 +46,9 @@ function App() {
       <div>
         <Counter teams={teamData} phase={gameState.phase}/>
       </div>
+
+      <Radar counterterrorists={gameState.counterterrorists}/>
+
       <div style={{marginLeft: 25}}>
         <div className={"lowerright player-list"}>
           {gameState.terrorists.map(player => <Player playerObject={player} color="orange" align="right"/>) }

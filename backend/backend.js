@@ -45,7 +45,6 @@ app.post('/' , (req, res) => {
     for(const [steamid, player] of Object.entries(raw_game_state.allplayers)) {
         let player_status = create_player_status(player.state.health, player.state.armor, player.state.helmet, player.state.money, player.weapon)
         let player_stats = create_player_stats(player.match_stats.kills, player.match_stats.assists, player.match_stats.deaths)
-        
         let weapons = []
         for(const[weapon_slot, weapon] of Object.entries(player.weapons)) {
             let name = weapon.name
@@ -59,7 +58,8 @@ app.post('/' , (req, res) => {
             weapons.push(weapon_object)
         }
 
-        let player_object = create_player(player.name, steamid, player_status, player_stats, weapons)
+        let position = player.position
+        let player_object = create_player(player.name, steamid, player_status, player_stats, weapons, null, position)
 
         if(player.team == 'T') {
             terrorists.push(player_object) 
