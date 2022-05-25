@@ -3,7 +3,6 @@ import './App.css';
 import {useState, useEffect} from 'react'
 import Player from './Player'
 import Counter from './ScoreCounter';
-import Radar from './Radar';
 
 function App() {
   const [gameState, setGameState] = useState()
