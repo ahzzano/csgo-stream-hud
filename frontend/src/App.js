@@ -41,7 +41,7 @@ function App() {
   return (
     <div className="App">
       <div>
-        <Counter teams={teamData}/>
+        <Counter teams={teamData} phase={gameState.phase}/>
       </div>
       <div style={{marginLeft: 25}}>
         <div className={"lowerright player-list"}>

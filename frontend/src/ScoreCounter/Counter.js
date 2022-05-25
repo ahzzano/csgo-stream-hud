@@ -11,7 +11,7 @@ function Counter(props){
                    {props.teams.ct_score}
                </div>
                 <div>
-                    Timer
+                    {props.phase.phase_ends_in}
                 </div>
                <div>
                    {props.teams.t_score}
