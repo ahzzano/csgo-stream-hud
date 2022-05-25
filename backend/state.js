@@ -1,5 +1,5 @@
 
-function create_state(tplayers, ctplayers, map, ctscore, tscore, round_state, ct_util, t_util) {
+function create_state(tplayers, ctplayers, map, ctscore, tscore, round_state, ct_util, t_util, phase) {
     let state = {
         terrorists: tplayers,
         counterterrorists: ctplayers,
@@ -8,7 +8,8 @@ function create_state(tplayers, ctplayers, map, ctscore, tscore, round_state, ct
         tscore: tscore,
         round_state: round_state,
         ct_util: ct_util,
-        t_util: t_util
+        t_util: t_util,
+        phase: phase
     }
 
     return state

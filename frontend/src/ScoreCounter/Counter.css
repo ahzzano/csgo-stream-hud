@@ -1,0 +1,18 @@
+.counter {
+    width: 500px;
+    height: 30px;
+    background-color: black;
+    color: white;
+
+    padding: 15px;
+    display: flex;
+}
+
+.center-screen {
+    display: flex;
+    justify-content: center;
+}
+
+.padding-from-top {
+    margin-top: 15px;
+}

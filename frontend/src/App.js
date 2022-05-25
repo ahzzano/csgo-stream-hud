@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import {useState, useEffect} from 'react'
 import Player from './Player'
+import Counter from './ScoreCounter';
 
 function App() {
   const [gameState, setGameState] = useState()
@@ -30,10 +31,17 @@ function App() {
     )
   }
 
+  let teamData = {
+    ct_score: gameState.ct_score,
+    t_score: gameState.tscore,
+    ct_name: "Counter-Terrorists",
+    t_name: "Terrorists"
+  }
+
   return (
     <div className="App">
       <div>
-        Hello
+        <Counter teams={teamData}/>
       </div>
       <div style={{marginLeft: 25}}>
         <div className={"lowerright player-list"}>

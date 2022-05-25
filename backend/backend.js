@@ -80,8 +80,10 @@ app.post('/' , (req, res) => {
     let tside_util = get_util_state(terrorists)
     let ctside_util = get_util_state(counterterrorists)
 
+    let phase = raw_game_state.phase_countdowns
+
     // Create the new state and save it to the global state
-    let new_state = create_state(terrorists, counterterrorists, map, ct_score, t_score, round_state, ctside_util, tside_util)
+    let new_state = create_state(terrorists, counterterrorists, map, ct_score, t_score, round_state, ctside_util, tside_util, phase)
 
     global_state = new_state
 
