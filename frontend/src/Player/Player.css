@@ -27,6 +27,8 @@
 
 .game-variables {
     display: flex;
-    align-content: center;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
     gap: 5px;
 }
