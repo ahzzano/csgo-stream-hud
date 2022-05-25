@@ -1,4 +1,5 @@
 import './Player.css'
+import Health from './health-icon.png'
 
 function Player(props) {
   let player = props.playerObject
@@ -21,7 +22,10 @@ function Player(props) {
             }}>
             </div>
             <div className={`flex ${direction} inside-player`}>
-              <span>{health}</span>
+              <span className={'game-variables'}>
+                {health}
+                <img src={Health} width={20} height={20}/>
+              </span>
               <span>{player.name}</span>
             </div>
           </div>

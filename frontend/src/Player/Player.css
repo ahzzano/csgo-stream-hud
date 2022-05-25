@@ -20,3 +20,9 @@
     padding-top: 7px;
     gap: 15px;
 }
+
+.game-variables {
+    display: flex;
+    align-content: center;
+    gap: 5px;
+}
