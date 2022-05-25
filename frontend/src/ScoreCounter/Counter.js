@@ -13,7 +13,7 @@ function Counter(props){
                         {props.teams.ct_score}
                     </div>
                         <div>
-                            {props.phase.phase_ends_in}
+                            {Math.round(props.phase.phase_ends_in)}
                         </div>
                     <div>
                         {props.teams.t_score}
