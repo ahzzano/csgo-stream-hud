@@ -2,14 +2,15 @@ import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 import { readFileSync } from 'fs'
-import {create_player, create_player_stats, create_player_status, create_state, get_util_state} from './state.js'
+import {create_player, create_player_stats, create_player_status, create_state, get_util_state} from './gamestate.js'
 
 const app = express()
 
 app.use(cors())
 app.use(bodyParser.json())
 
-let global_state = undefined 
+let game_state = undefined 
+let match_state = undefined
 let last_update = 0
 
 let team_a = undefined
@@ -106,13 +107,13 @@ app.post('/' , (req, res) => {
     // Create the new state and save it to the global state
     let new_state = create_state(team_b, team_a, map, ct_score, t_score, round_state, ctside_util, tside_util, phase)
 
-    global_state = new_state
+    game_state = new_state
 
     res.send('sent')
 })
 
 app.get('/', (req, res) => {
-    res.json(global_state)
+    res.json(game_state)
 })
 
 export {
