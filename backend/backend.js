@@ -3,6 +3,7 @@ import cors from 'cors'
 import bodyParser from 'body-parser'
 import { readFileSync } from 'fs'
 import {create_player, create_player_stats, create_player_status, create_state, get_util_state} from './gamestate.js'
+import { create_match } from './matchstate.js'
 
 const app = express()
 
@@ -15,6 +16,14 @@ let last_update = 0
 
 let team_a = undefined
 let team_b = undefined
+
+app.get('/controller', (req, res) => {
+    res.send("hello")
+})
+
+app.post('/controller', (req, res) => {
+
+})
 
 app.post('/' , (req, res) => {
     if(last_update == 0) {
