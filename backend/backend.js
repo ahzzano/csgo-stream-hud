@@ -3,7 +3,6 @@ import cors from 'cors'
 import bodyParser from 'body-parser'
 import { readFileSync } from 'fs'
 import {create_player, create_player_stats, create_player_status, create_state, get_util_state} from './gamestate.js'
-import { create_match } from './matchstate.js'
 import path from 'path'
 import {URL} from 'url'
 
@@ -22,17 +21,6 @@ let team_b = undefined
 
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, '../backend/views/'))
-
-app.get('/controller', (req, res) => {
-    res.render('index', {
-        game_state: game_state,
-        match_state: match_state
-    })
-})
-
-app.post('/controller', (req, res) => {
-    res.redirect('/controller')
-})
 
 app.post('/' , (req, res) => {
     if(last_update == 0) {
