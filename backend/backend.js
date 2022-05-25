@@ -4,8 +4,11 @@ import bodyParser from 'body-parser'
 import { readFileSync } from 'fs'
 import {create_player, create_player_stats, create_player_status, create_state, get_util_state} from './gamestate.js'
 import { create_match } from './matchstate.js'
+import path from 'path'
+import {URL} from 'url'
 
 const app = express()
+const __dirname = new URL('.', import.meta.url).pathname
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -17,12 +20,18 @@ let last_update = 0
 let team_a = undefined
 let team_b = undefined
 
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, '../backend/views/'))
+
 app.get('/controller', (req, res) => {
-    res.send("hello")
+    res.render('index', {
+        game_state: game_state,
+        match_state: match_state
+    })
 })
 
 app.post('/controller', (req, res) => {
-
+    res.redirect('/controller')
 })
 
 app.post('/' , (req, res) => {
@@ -115,7 +124,7 @@ app.post('/' , (req, res) => {
 
     // Create the new state and save it to the global state
     let new_state = create_state(team_b, team_a, map, ct_score, t_score, round_state, ctside_util, tside_util, phase)
-
+    
     game_state = new_state
 
     res.send('sent')
@@ -123,6 +132,10 @@ app.post('/' , (req, res) => {
 
 app.get('/', (req, res) => {
     res.json(game_state)
+})
+
+app.get('/match_state', (req, res) => {
+    res.json(match_state)
 })
 
 export {

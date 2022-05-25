@@ -7,6 +7,6 @@ function create_match(team_a, team_b) {
     }
 }
 
-export default {
+export {
     create_match
 }
