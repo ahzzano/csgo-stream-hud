@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
 
 .counter {
-    width: 675px;
+    width: 750px;
     height: 75px;
     background-color: #1b1d2e;
     color: white;
@@ -28,7 +28,7 @@
     width: 35%;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 35px;
     flex-grow: 1;
 }
 
@@ -38,11 +38,13 @@
 
 .scores {
     display: flex;
-    gap: 31px;
+    gap: 40px;
     width: 30%;
+    height: 100%;
     flex-grow: 1;
     align-items: center;
     justify-content: center;
+    background-color: #2e3047;
 }
 
 .justify-right {
