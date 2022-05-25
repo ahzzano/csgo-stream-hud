@@ -5,20 +5,22 @@ function Player(props) {
 
   let health = player.player_status.health
 
-  return (
-    <div style={{width: 400, backgroundColor: "black", color: "white", height: 60, borderRadius: 5}}>
-        <div className='flex'>
+  let direction = props.align == 'left' ? 'to-left' : 'to-right'
 
-          <img src={"https://nadeko.bot/static/media/nadeko-top.ad6cc06a.png"} width={50} height={50}/>
+  return (
+    <div style={{width: 400, backgroundColor: "black", color: "white", height: 60, borderRadius: 15}}>
+        <div className={`flex ${direction}`}>
+
+          <img src={"https://nadeko.bot/static/media/nadeko-top.ad6cc06a.png"} width={60} height={60}/>
           <div className='flex flex-down' style={{width: '100%'}}>
 
             <div style={{
                 width: `${health}%`,
                 height: 20,
-                backgroundColor: "orange"
+                backgroundColor: props.color
             }}>
             </div>
-            <div className='flex'>
+            <div className={`flex ${direction} inside-player`}>
               {player.name}
             </div>
           </div>

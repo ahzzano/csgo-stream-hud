@@ -17,7 +17,7 @@ function App() {
       return () => {
         clearInterval(interval)
       }
-    }, 5)
+    }, 100)
   }, []) 
 
   console.log(gameState)
@@ -35,10 +35,13 @@ function App() {
       <div>
         Hello
       </div>
-      <div style={{marginLeft: 50}}>
-        {gameState.terrorists.map(player => <Player playerObject={player}/>) }
-        <br/>
-        {gameState.counterterrorists.map(player => <Player playerObject={player}/>) }
+      <div style={{marginLeft: 25}}>
+        <div className={"lowerright player-list"}>
+          {gameState.terrorists.map(player => <Player playerObject={player} color="orange" align="right"/>) }
+        </div>
+        <div className={"lowerleft player-list"}>
+          {gameState.counterterrorists.map(player => <Player playerObject={player} color="lightblue" align="left"/>) }
+        </div>
       </div>
     </div>
   );

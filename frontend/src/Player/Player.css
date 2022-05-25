@@ -5,3 +5,17 @@
 .flex-down {
     flex-direction: column;
 }
+
+.to-left {
+    flex-direction: row;
+}
+
+.to-right{
+    flex-direction: row-reverse;
+}
+
+.inside-player {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 7px;
+}
