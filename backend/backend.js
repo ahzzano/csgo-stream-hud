@@ -10,11 +10,20 @@ app.use(cors())
 app.use(bodyParser.json())
 
 let global_state = undefined 
+let last_update = 0
 
 app.post('/' , (req, res) => {
-    console.profile('test')
+    if(last_update == 0) {
+        last_update = Date.now()
+        console.log('state updating for the first time')
+    }
+    else {
+        let now = Date.now()
+        let ms_since_last_update = now - last_update
+        console.log(`state updating [${ms_since_last_update / 1000}s]`) 
 
-    console.log('state updating')
+        last_update = now
+    }
 
     let raw_game_state = req.body
     
@@ -76,7 +85,7 @@ app.post('/' , (req, res) => {
 
     global_state = new_state
 
-    console.profileEnd()
+    res.send('sent')
 })
 
 app.get('/', (req, res) => {
