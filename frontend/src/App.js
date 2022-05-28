@@ -3,6 +3,7 @@ import './App.css';
 import {useState, useEffect} from 'react'
 import Player from './Player'
 import Counter from './ScoreCounter';
+import HighlightedPlayer from './HighlightedPlayer'
 
 function App() {
   const [gameState, setGameState] = useState()
@@ -39,13 +40,15 @@ function App() {
   }
 
   let isBombPlanted = gameState.bomb != undefined
-
   return (
     <div className="App">
       <div>
         <Counter teams={teamData} phase={gameState.phase}/>
       </div>
 
+      <div>
+        <HighlightedPlayer player={gameState.current_player}/>
+      </div>
 
       <div style={{marginLeft: 25}}>
         <div className={"lowerright player-list"}>
