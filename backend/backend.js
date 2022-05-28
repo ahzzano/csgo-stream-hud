@@ -76,6 +76,14 @@ app.post('/' , (req, res) => {
         }
     }
 
+    // Get Current Player
+    let current_player = [...terrorists, ...counterterrorists].filter((player) => {
+        return player.steamid == raw_game_state.player.steamid
+    })[0]
+
+    console.log(current_player)
+    
+
     if(team_a == undefined) {
         team_a = counterterrorists
     }
@@ -93,6 +101,7 @@ app.post('/' , (req, res) => {
             team_b = terrorists
         }
     }
+    console.log(current_player)
 
     // Get the current map
     let map = raw_game_state.map.name
@@ -111,7 +120,7 @@ app.post('/' , (req, res) => {
     let phase = raw_game_state.phase_countdowns
 
     // Create the new state and save it to the global state
-    let new_state = create_state(team_b, team_a, map, ct_score, t_score, round_state, ctside_util, tside_util, phase)
+    let new_state = create_state(team_b, team_a, map, ct_score, t_score, round_state, ctside_util, tside_util, phase, current_player)
     
     game_state = new_state
 
