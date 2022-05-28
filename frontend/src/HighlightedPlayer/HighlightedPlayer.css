@@ -1,13 +1,26 @@
 .focus {
     background-color: #1b1d2e;
     position: absolute;
-    width: 250px;
-    height: 50px;
+    width: 400px;
+    height: 75px;
     color:white;
+}
+
+.flex-down {
+    flex-direction: column;
+}
+
+.flex {
+    display: flex;
 }
 
 .center {
     display: flex;
     justify-content: center;
-    margin-top: 27%;
+    margin-top: 40%;
+}
+
+.inner-stats {
+    gap: 15px;
+    padding: 15px;
 }

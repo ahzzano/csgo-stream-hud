@@ -39,7 +39,10 @@ function App() {
     t_name: "Terrorists"
   }
 
+  let highlight = gameState.current_player != null ?  <HighlightedPlayer player={gameState.current_player}/> : <></>
+
   let isBombPlanted = gameState.bomb != undefined
+
   return (
     <div className="App">
       <div>
@@ -47,7 +50,7 @@ function App() {
       </div>
 
       <div>
-        <HighlightedPlayer player={gameState.current_player}/>
+        {highlight}
       </div>
 
       <div style={{marginLeft: 25}}>
