@@ -23,9 +23,18 @@
 .inner-stats {
     gap: 15px;
     padding: 15px;
+    align-items: center;
 }
 
 .pfp {
     z-index: 250;
     transform: translate(-150px, -85px);
+}
+
+.kda {
+    display: flex;
+    justify-content: right; 
+    align-items: center;
+    gap: 15px;
+    width: 50%;
 }
