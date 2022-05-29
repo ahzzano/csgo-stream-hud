@@ -45,11 +45,12 @@ function Player(props) {
   }
 
   function Healthbar() {
+    let hpHeight = 15 
     if(props.align == 'left') {
       return (
         <div style={{
             width: `${health}%`,
-            height: 20,
+            height: hpHeight,
             backgroundColor: props.color,
         }}/>
       ) 
@@ -59,7 +60,7 @@ function Player(props) {
         <div style={{
             width: `${health}%`,
             marginLeft: `${100 - health}%`,
-            height: 20,
+            height: hpHeight,
             backgroundColor: props.color,
         }}/>
       )
@@ -67,6 +68,10 @@ function Player(props) {
   }    
   
   const height = 65
+
+  let armorHud = player.player_status.armor > 0 ? ( <img src={ArmorIcon} width={20} height={20}/>) : null
+ 
+
   return (
     <div style={{width: 525, color: "white", height: height}} className="player">
         <div className={`flex ${direction}`}>
@@ -76,15 +81,14 @@ function Player(props) {
             <Healthbar/>
 
             <div className={`flex ${direction} inside-player`}>
+              <span className={'game-variables'}>{player.name}</span>
               <span className={'game-variables'}>
                 {health}
                 <img src={HealthIcon} width={20} height={20}/>
+                {armorHud}
               </span>
-              <span className={'game-variables'}>
-                {armor}
-                <img src={ArmorIcon} width={20} height={20}/>
-              </span>
-              <span className={'game-variables'}>{player.name}</span>
+              
+              
               
               <span className={'game-variables'}>
                 {player.player_stats.kills}/{player.player_stats.deaths}/{player.player_stats.assists}
