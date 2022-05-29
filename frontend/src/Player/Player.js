@@ -70,7 +70,6 @@ function Player(props) {
   const height = 65
 
   let armorHud = player.player_status.armor > 0 ? ( <img src={ArmorIcon} width={20} height={20}/>) : null
- 
 
   return (
     <div style={{width: 525, color: "white", height: height}} className="player">
@@ -87,8 +86,6 @@ function Player(props) {
                 <img src={HealthIcon} width={20} height={20}/>
                 {armorHud}
               </span>
-              
-              
               
               <span className={'game-variables'}>
                 {player.player_stats.kills}/{player.player_stats.deaths}/{player.player_stats.assists}
