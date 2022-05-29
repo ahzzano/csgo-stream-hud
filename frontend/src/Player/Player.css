@@ -18,7 +18,7 @@
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 7px;
-    gap: 15px;
+    gap: 8px;
 }
 
 .player {
@@ -31,4 +31,13 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
+}
+
+.align-right {
+    justify-content: right;
+    align-items: flex-end;
+}
+
+.money {
+    color: #5ec05e;
 }

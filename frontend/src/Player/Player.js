@@ -49,7 +49,12 @@ function Player(props) {
                 {armor}
                 <img src={ArmorIcon} width={20} height={20}/>
               </span>
-              <span>{player.name}</span>
+              <span className={'game-variables'}>{player.name}</span>
+
+              <span className={'game-variables money'}>${player.player_status.money}</span>
+              <span className={'game-variables'}>
+                {player.player_stats.kills}/{player.player_stats.deaths}/{player.player_stats.assists}
+              </span>
             </div>
           </div>
         </div>
